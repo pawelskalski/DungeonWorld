@@ -1,15 +1,16 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DungeonWorld.Model
 {
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class Class
+    public class Class
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Class()
         {
-            Characters = new HashSet<Character>();
+            Characters = new List<Character>();
         }
 
         [Key]
@@ -21,7 +22,7 @@ namespace DungeonWorld.Model
         public string Class_Name { get; set; }
 
         [Column("Class description")]
-        public string Class_description { get; set; }
+        public string ClassDescription { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Character> Characters { get; set; }

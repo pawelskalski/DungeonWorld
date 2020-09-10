@@ -9,7 +9,6 @@ namespace DungeonWorld
         public FormCharList()
         {
             InitializeComponent();
-
         }
 
         private void FormCharList_Load(object sender, EventArgs e)
