@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DungeonWorld.Model
 {
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    public partial class Race
+    public class Race
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Race()
@@ -13,14 +13,14 @@ namespace DungeonWorld.Model
         }
 
         [Key]
-        public int IDRace { get; set; }
+        public int RaceId { get; set; }
 
         [Column("Race Name")]
         [StringLength(50)]
-        public string Race_Name { get; set; }
+        public string RaceName { get; set; }
 
         [Column("Race description")]
-        public string Race_description { get; set; }
+        public string RaceDescription { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Character> Characters { get; set; }

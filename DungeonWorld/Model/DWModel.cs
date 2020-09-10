@@ -2,7 +2,7 @@ namespace DungeonWorld.Model
 {
     using System.Data.Entity;
 
-    public partial class DWModel : DbContext
+    public class DWModel : DbContext
     {
         public DWModel()
             : base("name=DungeonWorldModels")

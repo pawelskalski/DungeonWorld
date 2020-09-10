@@ -54,8 +54,8 @@ namespace DungeonWorld
                 {
 
                     Name = txtNameInput.Text,
-                    IDRace = DataAccesObject.GetRaceIdByName(ListRaceInput.SelectedItem.ToString()).IDRace,
-                    IDClass = DataAccesObject.GetClassIdByName(ListClassInput.SelectedItem.ToString()).IDClass,
+                    RaceId = DataAccesObject.GetRaceIdByName(ListRaceInput.SelectedItem.ToString()).RaceId,
+                    ClassId = DataAccesObject.GetClassIdByName(ListClassInput.SelectedItem.ToString()).IDClass,
                     Damage = ListDmgInput.Text,
                     MaxHealth = Decimal.ToInt32(txtHealthInput.Value),
                     CurrentHealth = Decimal.ToInt32(txtHealthInput.Value),

@@ -1,9 +1,7 @@
 ﻿using DungeonWorld.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace DungeonWorld.DAO
 {
@@ -11,52 +9,18 @@ namespace DungeonWorld.DAO
     {
         public static DWModel context = new DWModel();
 
-        public static Race GetRaceById(int id)
-        {
-            
-            return context.Races.Where(r => r.IDRace == id).FirstOrDefault();
-            
+        public static Race GetRaceById(int id) => context.Races.FirstOrDefault(r => r.RaceId == id);
 
-        }
-        public static Race GetRaceIdByName(string name)
-        {
+        public static Race GetRaceIdByName(string name) => context.Races.FirstOrDefault(r => r.RaceName == name);
 
-            return context.Races.Where(r => r.Race_Name == name).FirstOrDefault();
+        public  static Class GetClassById(int id) =>  context.Classes.SingleOrDefault(r => r.IDClass == id);
+        
+        public static Class GetClassIdByName(string name) => context.Classes.FirstOrDefault(r => r.Class_Name == name);
 
+        public static List<string> GetClassNames() => context.Classes.Select(c => c.Class_Name).ToList();
+        
+        public static List<String> GetRaceNames() => context.Races.Select(c => c.RaceName).ToList();
 
-        }
-
-        public  static Class GetClassById(int id)
-        {
-            
-            return  context.Classes
-                               .Where(r => r.IDClass == id)
-                               .SingleOrDefault();
-
-        }
-        public static Class GetClassIdByName(string name)
-        {
-            var query = context.Classes
-                               .Where(r => r.Class_Name == name).FirstOrDefault();
-                            
-            
-            return query;
-
-        }
-        public static List<string> GetClassNames()
-        {
-            return context.Classes.Select(c => c.Class_Name).ToList();
-        }
-        public static List<String> GetRaceNames()
-        {
-
-            return context.Races.Select(c => c.Race_Name).ToList();
-
-        }
-
-        public static List<Character> GetAllCharacters() 
-        {
-            return  context.Characters.ToList();
-        }
+        public static List<Character> GetAllCharacters() =>  context.Characters.ToList();
     }
 }

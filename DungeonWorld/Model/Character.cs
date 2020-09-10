@@ -5,11 +5,11 @@ namespace DungeonWorld.Model
     public partial class Character
     {
         [Key]
-        public int IDCharacter { get; set; }
+        public int CharacterId { get; set; }
 
-        public int IDClass { get; set; }
+        public int ClassId { get; set; }
 
-        public int IDRace { get; set; }
+        public int RaceId { get; set; }
 
         [Required]
         [StringLength(50)]
