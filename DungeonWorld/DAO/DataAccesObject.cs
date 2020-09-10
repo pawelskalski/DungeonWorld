@@ -43,20 +43,20 @@ namespace DungeonWorld.DAO
             return query;
 
         }
-        public async static Task<List<string>> GetClassNames()
+        public static List<string> GetClassNames()
         {
-            return await context.Classes.Select(c => c.Class_Name).ToListAsync();
+            return context.Classes.Select(c => c.Class_Name).ToList();
         }
-        public async static Task<List<String>> GetRaceNames()
+        public static List<String> GetRaceNames()
         {
 
-            return await context.Races.Select(c => c.Race_Name).ToListAsync();
+            return context.Races.Select(c => c.Race_Name).ToList();
 
         }
 
-        public async static Task<List<Character>> GetAllCharacters() 
+        public static List<Character> GetAllCharacters() 
         {
-            return await context.Characters.ToListAsync();
+            return  context.Characters.ToList();
         }
     }
 }

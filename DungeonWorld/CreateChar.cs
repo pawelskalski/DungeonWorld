@@ -18,25 +18,20 @@ namespace DungeonWorld
         {
             InitializeComponent();
             
-            
-            
-
-
-
         }
-        private async void SetListClassInputItems()
+        private void SetListClassInputItems()
         {
-            foreach(var item in await DataAccesObject.GetClassNames())
+            foreach(var item in   DataAccesObject.GetClassNames())
             {
                 this.ListClassInput.Items.Add(item);
             }
             
   
         }
-        private async void SetListRaceInputItems()
+        private void SetListRaceInputItems()
         {
             
-                foreach (var item in await DataAccesObject.GetRaceNames())
+                foreach (var item in  DataAccesObject.GetRaceNames())
                 {
                     this.ListRaceInput.Items.Add(item);
                 }
