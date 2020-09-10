@@ -5,6 +5,7 @@ namespace DungeonWorld
 {
     public partial class FormMainMenu : Form
     {
+        
         public FormMainMenu()
         {
             InitializeComponent();
@@ -23,6 +24,13 @@ namespace DungeonWorld
             FormCharList charList = new FormCharList();
             charList.Show();
             this.Hide();
+        }
+
+        private void FormMainMenu_Load(object sender, EventArgs e)
+        {
+            FormCreateChar createChar = new FormCreateChar();
+            createChar.Show();
+            createChar.Hide();
         }
     }
 }

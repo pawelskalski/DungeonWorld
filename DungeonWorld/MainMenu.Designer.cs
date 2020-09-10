@@ -72,6 +72,7 @@
             this.Controls.Add(this.btnMyCharacters);
             this.Name = "FormMainMenu";
             this.Text = "DungeonWorld";
+            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.ResumeLayout(false);
 
         }

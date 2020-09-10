@@ -14,14 +14,14 @@ namespace DungeonWorld.DAO
         public static Race GetRaceById(int id)
         {
             
-            return context.Races.Where(r => r.IDRace == id).SingleOrDefault();
+            return context.Races.Where(r => r.IDRace == id).FirstOrDefault();
             
 
         }
         public static Race GetRaceIdByName(string name)
         {
 
-            return context.Races.Where(r => r.Race_Name == name).SingleOrDefault();
+            return context.Races.Where(r => r.Race_Name == name).FirstOrDefault();
 
 
         }
@@ -37,7 +37,7 @@ namespace DungeonWorld.DAO
         public static Class GetClassIdByName(string name)
         {
             var query = context.Classes
-                               .Where(r => r.Class_Name == name).SingleOrDefault();
+                               .Where(r => r.Class_Name == name).FirstOrDefault();
                             
             
             return query;

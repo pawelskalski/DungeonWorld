@@ -9,29 +9,15 @@ namespace DungeonWorld
 {
     public partial class FormCreateChar : Form
     {
+
+
+
         public DWModel context = new DWModel();
-
-
-
 
         public FormCreateChar()
         {
             InitializeComponent();
-            this.ListDmgInput.Items.AddRange(new object[] {"d4","d6",
-                        "d8",
-                        "d10",
-                        "d12",
-                        "d20",
-                        });
-            object[] attributeList = new object[] { 16, 15, 13, 12, 9, 8 };
-            this.ListStrAtr.Items.AddRange(attributeList);
-            this.ListDexAtr.Items.AddRange(attributeList);
-            this.ListConAtr.Items.AddRange(attributeList);
-            this.ListIntAtr.Items.AddRange(attributeList);
-            this.ListWisAtr.Items.AddRange(attributeList);
-            this.ListCharAtr.Items.AddRange(attributeList);
-            SetListClassInputItems();
-            SetListRaceInputItems();
+            
             
             
 
@@ -49,11 +35,13 @@ namespace DungeonWorld
         }
         private async void SetListRaceInputItems()
         {
-            foreach (var item in await DataAccesObject.GetRaceNames())
-            {
-                this.ListRaceInput.Items.Add(item);
-            }
+            
+                foreach (var item in await DataAccesObject.GetRaceNames())
+                {
+                    this.ListRaceInput.Items.Add(item);
+                }
 
+            
         }
 
         private void btnCreateChar_Click(object sender, EventArgs e)
@@ -112,6 +100,30 @@ namespace DungeonWorld
 
         }
 
+        private void FormCreateChar_Load(object sender, EventArgs e)
+        {
+            this.ListDmgInput.Items.AddRange(new object[] {"d4","d6",
+                        "d8",
+                        "d10",
+                        "d12",
+                        "d20",
+                        });
+            object[] attributeList = new object[] { 16, 15, 13, 12, 9, 8 };
+            this.ListStrAtr.Items.AddRange(attributeList);
+            this.ListDexAtr.Items.AddRange(attributeList);
+            this.ListConAtr.Items.AddRange(attributeList);
+            this.ListIntAtr.Items.AddRange(attributeList);
+            this.ListWisAtr.Items.AddRange(attributeList);
+            this.ListCharAtr.Items.AddRange(attributeList);
+            SetListClassInputItems();
+            SetListRaceInputItems();
+        }
 
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            FormMainMenu mainMenu = new FormMainMenu();
+            mainMenu.Show();
+            this.Hide();
+        }
     }
 }

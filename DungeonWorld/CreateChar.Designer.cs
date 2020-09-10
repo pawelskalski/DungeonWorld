@@ -52,6 +52,7 @@
             this.ListCharAtr = new System.Windows.Forms.ComboBox();
             this.btnCreateChar = new System.Windows.Forms.Button();
             this.txtHealthInput = new System.Windows.Forms.NumericUpDown();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHealthInput)).BeginInit();
             this.SuspendLayout();
@@ -360,11 +361,22 @@
             0,
             0});
             // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(12, 415);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 27;
+            this.btnReturn.Text = "Powrót";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // FormCreateChar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.txtHealthInput);
             this.Controls.Add(this.btnCreateChar);
             this.Controls.Add(this.ListCharAtr);
@@ -391,6 +403,7 @@
             this.Controls.Add(this.imgAvatar);
             this.Name = "FormCreateChar";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.FormCreateChar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHealthInput)).EndInit();
             this.ResumeLayout(false);
@@ -424,5 +437,6 @@
         private System.Windows.Forms.ComboBox ListCharAtr;
         private System.Windows.Forms.Button btnCreateChar;
         private System.Windows.Forms.NumericUpDown txtHealthInput;
+        private System.Windows.Forms.Button btnReturn;
     }
 }
