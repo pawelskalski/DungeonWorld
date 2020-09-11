@@ -70,7 +70,7 @@
             this.txtNameInput.Location = new System.Drawing.Point(363, 72);
             this.txtNameInput.Name = "txtNameInput";
             this.txtNameInput.Size = new System.Drawing.Size(121, 20);
-            this.txtNameInput.TabIndex = 1;
+            this.txtNameInput.TabIndex = 1;            
             // 
             // txtNameLabel
             // 
@@ -402,7 +402,8 @@
             this.Controls.Add(this.txtNameInput);
             this.Controls.Add(this.imgAvatar);
             this.Name = "FormCreateChar";
-            this.Text = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Stwórz postać";
             this.Load += new System.EventHandler(this.FormCreateChar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHealthInput)).EndInit();

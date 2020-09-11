@@ -9,34 +9,32 @@ namespace DungeonWorld
 {
     public partial class FormCreateChar : Form
     {
-
-
-
         public DWModel context = new DWModel();
+
 
         public FormCreateChar()
         {
             InitializeComponent();
-            
+
         }
         private void SetListClassInputItems()
         {
-            foreach(var item in   DataAccesObject.GetClassNames())
+            foreach (var item in DataAccesObject.GetClassNames())
             {
                 this.ListClassInput.Items.Add(item);
             }
-            
-  
+
+
         }
         private void SetListRaceInputItems()
         {
-            
-                foreach (var item in  DataAccesObject.GetRaceNames())
-                {
-                    this.ListRaceInput.Items.Add(item);
-                }
 
-            
+            foreach (var item in DataAccesObject.GetRaceNames())
+            {
+                this.ListRaceInput.Items.Add(item);
+            }
+
+
         }
 
         private void btnCreateChar_Click(object sender, EventArgs e)
@@ -54,8 +52,8 @@ namespace DungeonWorld
                 {
 
                     Name = txtNameInput.Text,
-                    IDRace = DataAccesObject.GetRaceIdByName(ListRaceInput.SelectedItem.ToString()).IDRace,
-                    IDClass = DataAccesObject.GetClassIdByName(ListClassInput.SelectedItem.ToString()).IDClass,
+                    IDRace = DataAccesObject.GetRaceByName(ListRaceInput.SelectedItem.ToString()).IDRace,
+                    IDClass = DataAccesObject.GetClassByName(ListClassInput.SelectedItem.ToString()).IDClass,
                     Damage = ListDmgInput.Text,
                     MaxHealth = Decimal.ToInt32(txtHealthInput.Value),
                     CurrentHealth = Decimal.ToInt32(txtHealthInput.Value),
@@ -68,7 +66,6 @@ namespace DungeonWorld
                 };
                 context.Characters.Add(character);
                 context.SaveChanges();
-
                 FormMainMenu mainMenu = new FormMainMenu();
                 mainMenu.Show();
                 this.Close();
@@ -78,8 +75,9 @@ namespace DungeonWorld
 
         private bool CreateCharValidate()
         {
-            object[] inputList = new object[] { ListRaceInput, ListStrAtr, ListDexAtr, ListConAtr, ListIntAtr, ListWisAtr, ListCharAtr, ListClassInput };
-            foreach (ComboBox input in inputList)
+            object[] comboBoxList = new object[] { ListRaceInput, ListClassInput, ListDmgInput, ListStrAtr, ListDexAtr, ListConAtr, ListIntAtr, ListWisAtr, ListCharAtr };
+
+            foreach (ComboBox input in comboBoxList)
             {
                 if (string.IsNullOrWhiteSpace(input.Text))
                 {
@@ -87,14 +85,16 @@ namespace DungeonWorld
                 }
                 else
                 {
-                    return false;
+                    if (string.IsNullOrWhiteSpace(txtNameInput.Text))
+                    {
+                        return false;
+                    }
                 }
 
             }
             return false;
 
         }
-
         private void FormCreateChar_Load(object sender, EventArgs e)
         {
             this.ListDmgInput.Items.AddRange(new object[] {"d4","d6",
